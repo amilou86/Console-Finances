@@ -102,20 +102,23 @@ var totalDollars = `$${total.toFixed(2)}`;
 console.log("Net profit/loss: ", totalDollars);
 
 // * The average of the **changes** in Profit/Losses over the entire period.
+var totalChange = 0;
 
-var changes = [];
-for (let i = 1; i < finances.length; i++) {
-    // get the difference between current and previous month
-    changes.push(finances[i][1] - finances[i - 1][1]);
-    //   remove first el to prevent errors
-    changes.shift(); // Remove the first element
-    var averageChange = changes.reduce((acc, val) => acc + val, 0) / changes.length;
-    console.log("Average Change", averageChange);
+for (var i = 1; i < finances.length; i++) {
+    // Calculate the change in the financial figure
+    var change = finances[i][1] - finances[i - 1][1];
+
+    // Add the change to the total
+    totalChange += change;
 }
 
+// Calculate the average change
+var averageChange = totalChange / (finances.length - 1);
+
+// Display the average change with up to 2 decimal places
+var formattedAverageChange = averageChange.toFixed(2);
+
+console.log("Average Change:", formattedAverageChange);
+
 // * The greatest increase in Profit/Losses (date and difference in the amounts) over the entire period.
-
-// * The greatest decrease in Profit/Losses (date and difference in the amounts) over the entire period.
-
-
 
