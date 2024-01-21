@@ -122,3 +122,37 @@ console.log("Average Change:", formattedAverageChange);
 
 // * The greatest increase in Profit/Losses (date and difference in the amounts) over the entire period.
 
+
+var greatestIncrease = 0;
+
+for (var i = 1; i < finances.length; i++) {
+    // Calculate the change in the financial figure
+    var change = finances[i][1] - finances[i - 1][1];
+
+    // Update the greatest increase if the current change is greater
+    if (change > greatestIncrease) {
+        greatestIncrease = change;
+    }
+}
+
+// formatted as dollars
+var increaseDollars = `$${greatestIncrease.toFixed(2)}`;
+console.log("Greatest Increase:", increaseDollars);
+
+// * The greatest decrease in Profit/Losses (date and difference in the amounts) over the entire period.
+
+var greatestDecrease = 0;
+
+for (var i = 1; i < finances.length; i++) {
+    // Calculate the change in the financial figure
+    var change = finances[i][1] - finances[i - 1][1];
+
+    // Update the greatest increase if the current change is greater
+    if (change < greatestDecrease) {
+        greatestDecrease = change;
+    }
+}
+
+// formatted as dollars
+var decreaseDollars = `$${greatestDecrease.toFixed(2)}`;
+console.log("Greatest Decrease:", decreaseDollars);
