@@ -2,6 +2,10 @@
 code for analyzing the financial records of a business.
 
 ## USER STORY
+AS AN employee of a business
+I WANT to be able to calculate company finances
+SO THAT I can track and analyse Profit/Losses
+
 
 ### ACCEPTED CRITERIA
 
